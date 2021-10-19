@@ -1,4 +1,4 @@
-select ua.User_Address_City as location, Sum(sales_amount) as sales
+select ua.User_Address_City as location, Round(Sum(sales_amount),2) as sales
 from user_address as ua
 inner join user as u
 on u.User_ID = ua.User_ID
