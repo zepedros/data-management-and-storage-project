@@ -27,12 +27,10 @@ CREATE TABLE IF NOT EXISTS `Product` (
   `Product_Description` varchar(50) DEFAULT NULL,
   `Product_Price` FLOAT NOT NULL,
   `Product_Category_ID` BIGINT UNSIGNED NOT NULL,
-  `Discount_ID` BIGINT UNSIGNED DEFAULT NULL,
   `Created_At` DATETIME,
   `Modified_At`  DATETIME,
   PRIMARY KEY (`Product_ID`),
-  FOREIGN KEY (`Product_Category_ID`) REFERENCES Product_Category(`Product_Category_ID`),
-  FOREIGN KEY (`Discount_ID`) REFERENCES Discount(`Discount_ID`)
+  FOREIGN KEY (`Product_Category_ID`) REFERENCES Product_Category(`Product_Category_ID`)
 );
 
 
@@ -120,7 +118,9 @@ CREATE TABLE IF NOT EXISTS `Orders` (
   `Total_Amount` INT NOT NULL DEFAULT 0,
   `Created_At` DATETIME,
   `Modified_At`  DATETIME,
-  FOREIGN KEY (User_ID) REFERENCES User(User_ID)
+  `Discount_ID` BIGINT UNSIGNED DEFAULT NULL,
+  FOREIGN KEY (User_ID) REFERENCES User(User_ID),
+  FOREIGN KEY (`Discount_ID`) REFERENCES Discount(`Discount_ID`)
 ) ;
 
 CREATE TABLE IF NOT EXISTS `Invoice` (
