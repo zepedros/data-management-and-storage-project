@@ -1,0 +1,12 @@
+CREATE VIEW INVOICE2
+AS
+SELECT p.product_Name as 'Description', p.Product_Price as 'Unit Cost',  oi.quantity as 'quantity', i.sales_amount as 'Amount'
+From product as p
+Inner Join SKU as s
+ON  p.product_ID = s.product_ID
+Inner Join order_item as oi
+ON s.sku_id = oi.sku_id
+Inner Join orders as o
+ON oi.order_ID = o.order_ID
+Inner Join invoice as i
+ON o.order_ID = i.order_ID;
