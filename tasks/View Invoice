@@ -1,6 +1,6 @@
 CREATE VIEW INVOICE2
 AS
-SELECT p.product_Name as 'Description', p.Product_Price as 'Unit Cost',  oi.quantity as 'quantity', i.sales_amount as 'Amount'
+SELECT p.product_Name as 'Description', p.Product_Price as 'Unit Cost',  oi.quantity as 'quantity', (p.Product_Price*oi.quantity) as 'Amount'
 From product as p
 Inner Join SKU as s
 ON  p.product_ID = s.product_ID
