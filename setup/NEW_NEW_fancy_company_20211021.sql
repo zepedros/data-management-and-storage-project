@@ -1,6 +1,8 @@
+CREATE DATABASE  IF NOT EXISTS `fancy_company` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `fancy_company`;
 -- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: 127.0.0.1    Database: fancy_company
+-- Host: localhost    Database: fancy_company
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -111,42 +113,6 @@ LOCK TABLES `Invoice` WRITE;
 INSERT INTO `Invoice` VALUES (1,1,72.9,'Completed','2019-01-06','2019-01-01 16:00:00',NULL),(2,2,218.7,'Completed','2019-01-15','2019-01-10 18:00:00',NULL),(3,3,105.2,'Completed','2019-01-17','2019-01-12 18:10:00',NULL),(4,4,29.99,'Completed','2019-01-18','2019-01-13 16:00:00',NULL),(5,5,303.49,'Completed','2019-03-05','2019-02-28 10:10:00',NULL),(6,6,57.39,'Completed','2019-03-06','2019-03-01 09:35:00',NULL),(7,7,81,'Completed','2019-03-15','2019-03-10 20:00:00',NULL),(8,8,155.78,'Completed','2019-03-24','2019-03-19 19:00:00',NULL),(9,9,97.2,'Completed','2019-05-19','2019-05-14 08:10:00',NULL),(10,10,81,'Completed','2019-05-23','2019-05-18 10:10:00',NULL),(11,11,259.2,'Completed','2019-06-07','2019-06-02 08:33:01',NULL),(12,12,82.64,'Completed','2019-06-29','2019-06-24 12:04:45',NULL),(13,13,81,'Completed','2019-07-09','2019-07-04 22:20:09',NULL),(14,14,57.39,'Completed','2019-07-19','2019-07-14 18:10:00',NULL),(15,15,105.3,'Completed','2019-08-13','2019-08-08 14:30:35',NULL),(16,16,194.88,'Completed','2019-08-22','2019-08-17 14:15:35',NULL),(17,17,81,'Completed','2019-11-03','2019-10-29 09:31:32',NULL),(18,18,16.2,'Completed','2019-12-17','2019-12-12 21:03:01',NULL),(19,19,40.5,'Completed','2019-12-19','2019-12-14 22:03:01',NULL),(20,20,48.6,'Completed','2020-01-15','2020-01-10 09:14:23',NULL),(21,21,29.99,'Completed','2020-01-22','2020-01-17 09:14:23',NULL),(22,22,104.84,'Completed','2020-02-07','2020-02-02 11:14:24',NULL),(23,23,97.2,'Completed','2020-03-20','2020-03-15 12:50:00',NULL),(24,24,105.3,'Completed','2020-04-03','2020-03-29 22:51:00',NULL),(25,25,190.9,'Completed','2020-05-03','2020-04-28 23:30:00',NULL),(26,26,178.2,'Completed','2020-07-12','2020-07-07 15:00:01',NULL),(27,27,16.2,'Completed','2020-10-13','2020-10-08 18:40:01',NULL),(28,28,247.05,'Completed','2020-11-10','2020-11-05 21:00:00',NULL),(29,29,69.97,'Completed','2020-12-06','2020-12-01 23:12:00',NULL),(30,30,89,'Completed','2020-12-28','2020-12-23 13:00:14',NULL);
 /*!40000 ALTER TABLE `Invoice` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Temporary view structure for view `invoice2`
---
-
-DROP TABLE IF EXISTS `invoice2`;
-/*!50001 DROP VIEW IF EXISTS `invoice2`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `invoice2` AS SELECT 
- 1 AS `Description`,
- 1 AS `Unit Cost`,
- 1 AS `quantity`,
- 1 AS `Amount`*/;
-SET character_set_client = @saved_cs_client;
-
---
--- Temporary view structure for view `invoice_view`
---
-
-DROP TABLE IF EXISTS `invoice_view`;
-/*!50001 DROP VIEW IF EXISTS `invoice_view`*/;
-SET @saved_cs_client     = @@character_set_client;
-/*!50503 SET character_set_client = utf8mb4 */;
-/*!50001 CREATE VIEW `invoice_view` AS SELECT 
- 1 AS `Invoice Number`,
- 1 AS `Date of issue`,
- 1 AS `Client Name`,
- 1 AS `Street Address`,
- 1 AS `City`,
- 1 AS `Postal Code`,
- 1 AS `Country`,
- 1 AS `Subtotal`,
- 1 AS `Tax`,
- 1 AS `Total`*/;
-SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `Order_Item`
@@ -459,7 +425,7 @@ CREATE TABLE `User_Address` (
 
 LOCK TABLES `User_Address` WRITE;
 /*!40000 ALTER TABLE `User_Address` DISABLE KEYS */;
-INSERT INTO `User_Address` VALUES (1,1,'Schaarsteinweg','14','Elztal','74834','Germany','2019-01-01 14:01:00',NULL),(2,2,'Hollander Strasse','78','Hallstadt','82491','Germany','2019-01-10 15:00:00',NULL),(3,3,'Neuer Jungfernstieg','124','Grainau','68219','Germany','2019-02-28 09:35:00',NULL),(4,4,'Nuernbergerstrasse','89','Bad Wildungen','34537','Germany','2019-03-19 17:39:10',NULL),(5,5,'Messedamm','200','Stephanskirchen','83065','Germany','2019-05-14 05:12:00',NULL),(6,6,'Borstelmannsweg','43','Lauter','83125','Germany','2019-06-02 08:33:01',NULL),(7,7,'An der Alster','2','Willroth','56594','Germany','2019-06-23 21:04:45',NULL),(8,8,'Meininger Strasse ','60','Schaafheim','64850','Germany','2019-07-04 22:14:09',NULL),(9,9,'Mohrenstrasse ','78','Bad Salzuflen Innenstadt','32105','Germany','2019-08-08 14:15:35',NULL),(10,10,'Unter den Linden ','119','Pforzheim Innenstadt','75172','Germany','2019-10-29 06:31:32',NULL),(11,11,'Brandenburgische Str ','78','Toenning','25827','Germany','2019-12-12 21:03:01',NULL),(12,12,'Scharnweberstrasse','350','Bitterfeld','06732','Germany','2020-01-10 07:15:23',NULL),(14,14,'Leipziger Strasse','11','Salzweg','94119','Germany','2020-03-15 10:45:00',NULL),(15,15,'Rathausstrasse','90','Dresden','01314','Germany','2020-04-28 23:13:00',NULL),(16,16,'Stresemannstr.','4','Weissenfels','06651','Germany','2020-07-07 15:00:01',NULL),(17,17,'Rudower Chaussee','18','Altrich','54518','Germany','2020-10-08 18:34:01',NULL),(18,18,'Langenhorner Chaussee','2','Berlin','14052','Germany','2020-11-05 20:00:00',NULL),(19,19,'Grosse Praesidenten Str. ','116','Loewenstein','74245','Germany','2020-12-01 22:12:00',NULL),(20,20,'Bleibtreustrasse ','5','Jena','07707','Germany','2020-12-23 10:00:14',NULL);
+INSERT INTO `User_Address` VALUES (1,1,'Schaarsteinweg','14','Elztal','74834','Germany','2019-01-01 14:01:00',NULL),(2,2,'Hollander Strasse','78','Hallstadt','82491','Germany','2019-01-10 15:00:00',NULL),(3,3,'Neuer Jungfernstieg','124','Grainau','68219','Germany','2019-02-28 09:35:00',NULL),(4,4,'Nuernbergerstrasse','89','Bad Wildungen','34537','Germany','2019-03-19 17:39:10',NULL),(5,5,'Messedamm','200','Stephanskirchen','83065','Germany','2019-05-14 05:12:00',NULL),(6,6,'Borstelmannsweg','43','Lauter','83125','Germany','2019-06-02 08:33:01',NULL),(7,7,'An der Alster','2','Willroth','56594','Germany','2019-06-23 21:04:45',NULL),(8,8,'Meininger Strasse ','60','Schaafheim','64850','Germany','2019-07-04 22:14:09',NULL),(9,9,'Mohrenstrasse ','78','Bad Salzuflen Innenstadt','32105','Germany','2019-08-08 14:15:35',NULL),(10,10,'Unter den Linden ','119','Pforzheim Innenstadt','75172','Germany','2019-10-29 06:31:32',NULL),(11,11,'Brandenburgische Str ','78','Toenning','25827','Germany','2019-12-12 21:03:01',NULL),(12,12,'Scharnweberstrasse','350','Bitterfeld','06732','Germany','2020-01-10 07:15:23',NULL),(13,13,'Koepenicker Str.','35','Heuchelheim bei Franken','67259','Germany','2020-12-12 09:14:24',NULL),(14,14,'Leipziger Strasse','11','Salzweg','94119','Germany','2020-03-15 10:45:00',NULL),(15,15,'Rathausstrasse','90','Dresden','01314','Germany','2020-04-28 23:13:00',NULL),(16,16,'Stresemannstr.','4','Weissenfels','06651','Germany','2020-07-07 15:00:01',NULL),(17,17,'Rudower Chaussee','18','Altrich','54518','Germany','2020-10-08 18:34:01',NULL),(18,18,'Langenhorner Chaussee','2','Berlin','14052','Germany','2020-11-05 20:00:00',NULL),(19,19,'Grosse Praesidenten Str. ','116','Loewenstein','74245','Germany','2020-12-01 22:12:00',NULL),(20,20,'Bleibtreustrasse ','5','Jena','07707','Germany','2020-12-23 10:00:14',NULL);
 /*!40000 ALTER TABLE `User_Address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -493,42 +459,6 @@ LOCK TABLES `Warehouse` WRITE;
 INSERT INTO `Warehouse` VALUES (1,'Warehouse Ohrdurf','Waldstrasse ',81,'Ohrdurf','99885','2018-12-15 12:02:02',NULL);
 /*!40000 ALTER TABLE `Warehouse` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Final view structure for view `invoice2`
---
-
-/*!50001 DROP VIEW IF EXISTS `invoice2`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `invoice2` AS select `p`.`Product_Name` AS `Description`,`p`.`Product_Price` AS `Unit Cost`,`oi`.`Quantity` AS `quantity`,(`p`.`Product_Price` * `oi`.`Quantity`) AS `Amount` from ((((`product` `p` join `sku` `s` on((`p`.`Product_ID` = `s`.`Product_ID`))) join `order_item` `oi` on((`s`.`SKU_ID` = `oi`.`SKU_ID`))) join `orders` `o` on((`oi`.`Order_ID` = `o`.`Order_ID`))) join `invoice` `i` on((`o`.`Order_ID` = `i`.`Order_ID`))) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
-
---
--- Final view structure for view `invoice_view`
---
-
-/*!50001 DROP VIEW IF EXISTS `invoice_view`*/;
-/*!50001 SET @saved_cs_client          = @@character_set_client */;
-/*!50001 SET @saved_cs_results         = @@character_set_results */;
-/*!50001 SET @saved_col_connection     = @@collation_connection */;
-/*!50001 SET character_set_client      = utf8mb4 */;
-/*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
-/*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `invoice_view` AS select `I`.`Invoice_ID` AS `Invoice Number`,`I`.`Created_At` AS `Date of issue`,concat(`U`.`User_First_Name`,' ',`U`.`User_Last_Name`) AS `Client Name`,`UA`.`User_Address_Streetname` AS `Street Address`,`UA`.`User_Address_City` AS `City`,`UA`.`User_Address_Postalcode` AS `Postal Code`,`UA`.`User_Adress_Country` AS `Country`,`I`.`Sales_Amount` AS `Subtotal`,(`I`.`Sales_Amount` * 0.19) AS `Tax`,(`I`.`Sales_Amount` * 1.19) AS `Total` from (((`invoice` `I` join `orders` `O`) join `user` `U`) join `user_address` `UA`) where ((`I`.`Order_ID` = `O`.`Order_ID`) and (`U`.`User_ID` = `O`.`Order_ID`) and (`U`.`User_ID` = `UA`.`User_ID`)) */;
-/*!50001 SET character_set_client      = @saved_cs_client */;
-/*!50001 SET character_set_results     = @saved_cs_results */;
-/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -539,4 +469,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-21 21:30:41
+-- Dump completed on 2021-10-22 14:23:09
