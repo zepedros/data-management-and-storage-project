@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `fancy_company` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `fancy_company`;
+CREATE DATABASE  IF NOT EXISTS `fan` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `fan`;
 -- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
--- Host: localhost    Database: fancy_company
+-- Host: 127.0.0.1    Database: fan
 -- ------------------------------------------------------
 -- Server version	8.0.26
 
@@ -78,7 +78,7 @@ CREATE TABLE `Discount` (
 
 LOCK TABLES `Discount` WRITE;
 /*!40000 ALTER TABLE `Discount` DISABLE KEYS */;
-INSERT INTO `Discount` VALUES (1,'5% discount','summer sale',5,0,'2018-12-15 11:12:02',NULL),(2,'10% discount','special offer',10,1,'2018-12-15 11:18:02',NULL),(3,'15% discount','flash sale',15,1,'2018-12-15 11:22:02',NULL),(4,'20% discount','black friday',20,0,'2018-12-15 11:32:02',NULL);
+INSERT INTO `Discount` VALUES (1,'5% discount','summer sale',5,1,'2018-12-15 11:12:02',NULL),(2,'10% discount','special offer',10,1,'2018-12-15 11:18:02',NULL),(3,'0% discount','no discount',0,1,'2018-12-15 11:22:02',NULL);
 /*!40000 ALTER TABLE `Discount` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,6 +93,8 @@ CREATE TABLE `Invoice` (
   `Invoice_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
   `Order_ID` bigint unsigned NOT NULL,
   `Sales_Amount` float NOT NULL,
+  `Tax_Amount` float NOT NULL,
+  `Tax_Rate` float NOT NULL,
   `Status` varchar(45) NOT NULL DEFAULT '0',
   `Due_Date` date NOT NULL,
   `Created_At` datetime DEFAULT NULL,
@@ -110,7 +112,7 @@ CREATE TABLE `Invoice` (
 
 LOCK TABLES `Invoice` WRITE;
 /*!40000 ALTER TABLE `Invoice` DISABLE KEYS */;
-INSERT INTO `Invoice` VALUES (1,1,72.9,'Completed','2019-01-06','2019-01-01 16:00:00',NULL),(2,2,218.7,'Completed','2019-01-15','2019-01-10 18:00:00',NULL),(3,3,105.2,'Completed','2019-01-17','2019-01-12 18:10:00',NULL),(4,4,29.99,'Completed','2019-01-18','2019-01-13 16:00:00',NULL),(5,5,303.49,'Completed','2019-03-05','2019-02-28 10:10:00',NULL),(6,6,57.39,'Completed','2019-03-06','2019-03-01 09:35:00',NULL),(7,7,81,'Completed','2019-03-15','2019-03-10 20:00:00',NULL),(8,8,155.78,'Completed','2019-03-24','2019-03-19 19:00:00',NULL),(9,9,97.2,'Completed','2019-05-19','2019-05-14 08:10:00',NULL),(10,10,81,'Completed','2019-05-23','2019-05-18 10:10:00',NULL),(11,11,259.2,'Completed','2019-06-07','2019-06-02 08:33:01',NULL),(12,12,82.64,'Completed','2019-06-29','2019-06-24 12:04:45',NULL),(13,13,81,'Completed','2019-07-09','2019-07-04 22:20:09',NULL),(14,14,57.39,'Completed','2019-07-19','2019-07-14 18:10:00',NULL),(15,15,105.3,'Completed','2019-08-13','2019-08-08 14:30:35',NULL),(16,16,194.88,'Completed','2019-08-22','2019-08-17 14:15:35',NULL),(17,17,81,'Completed','2019-11-03','2019-10-29 09:31:32',NULL),(18,18,16.2,'Completed','2019-12-17','2019-12-12 21:03:01',NULL),(19,19,40.5,'Completed','2019-12-19','2019-12-14 22:03:01',NULL),(20,20,48.6,'Completed','2020-01-15','2020-01-10 09:14:23',NULL),(21,21,29.99,'Completed','2020-01-22','2020-01-17 09:14:23',NULL),(22,22,104.84,'Completed','2020-02-07','2020-02-02 11:14:24',NULL),(23,23,97.2,'Completed','2020-03-20','2020-03-15 12:50:00',NULL),(24,24,105.3,'Completed','2020-04-03','2020-03-29 22:51:00',NULL),(25,25,190.9,'Completed','2020-05-03','2020-04-28 23:30:00',NULL),(26,26,178.2,'Completed','2020-07-12','2020-07-07 15:00:01',NULL),(27,27,16.2,'Completed','2020-10-13','2020-10-08 18:40:01',NULL),(28,28,247.05,'Completed','2020-11-10','2020-11-05 21:00:00',NULL),(29,29,69.97,'Completed','2020-12-06','2020-12-01 23:12:00',NULL),(30,30,89,'Completed','2020-12-28','2020-12-23 13:00:14',NULL);
+INSERT INTO `Invoice` VALUES (1,1,72.9,13.85,19,'Completed','2019-01-06','2019-01-01 16:00:00',NULL),(2,2,218.7,41.55,19,'Completed','2019-01-15','2019-01-10 18:00:00',NULL),(3,3,105.2,19.99,19,'Completed','2019-01-17','2019-01-12 18:10:00',NULL),(4,4,29.99,5.7,19,'Completed','2019-01-18','2019-01-13 16:00:00',NULL),(5,5,303.49,57.66,19,'Completed','2019-03-05','2019-02-28 10:10:00',NULL),(6,6,57.39,10.9,19,'Completed','2019-03-06','2019-03-01 09:35:00',NULL),(7,7,81,15.39,19,'Completed','2019-03-15','2019-03-10 20:00:00',NULL),(8,8,155.78,29.6,19,'Completed','2019-03-24','2019-03-19 19:00:00',NULL),(9,9,97.2,18.47,19,'Completed','2019-05-19','2019-05-14 08:10:00',NULL),(10,10,81,15.39,19,'Completed','2019-05-23','2019-05-18 10:10:00',NULL),(11,11,259.2,49.25,19,'Completed','2019-06-07','2019-06-02 08:33:01',NULL),(12,12,82.64,15.7,19,'Completed','2019-06-29','2019-06-24 12:04:45',NULL),(13,13,81,15.39,19,'Completed','2019-07-09','2019-07-04 22:20:09',NULL),(14,14,57.39,10.9,19,'Completed','2019-07-19','2019-07-14 18:10:00',NULL),(15,15,105.3,20.01,19,'Completed','2019-08-13','2019-08-08 14:30:35',NULL),(16,16,194.88,37.03,19,'Completed','2019-08-22','2019-08-17 14:15:35',NULL),(17,17,81,15.39,19,'Completed','2019-11-03','2019-10-29 09:31:32',NULL),(18,18,16.2,3.08,19,'Completed','2019-12-17','2019-12-12 21:03:01',NULL),(19,19,40.5,7.7,19,'Completed','2019-12-19','2019-12-14 22:03:01',NULL),(20,20,48.6,9.23,19,'Completed','2020-01-15','2020-01-10 09:14:23',NULL),(21,21,29.99,5.7,19,'Completed','2020-01-22','2020-01-17 09:14:23',NULL),(22,22,104.84,19.92,19,'Completed','2020-02-07','2020-02-02 11:14:24',NULL),(23,23,97.2,18.47,19,'Completed','2020-03-20','2020-03-15 12:50:00',NULL),(24,24,105.3,20.01,19,'Completed','2020-04-03','2020-03-29 22:51:00',NULL),(25,25,190.9,36.12,19,'Completed','2020-05-03','2020-04-28 23:30:00',NULL),(26,26,178.2,33.86,19,'Completed','2020-07-12','2020-07-07 15:00:01',NULL),(27,27,16.2,3.08,19,'Completed','2020-10-13','2020-10-08 18:40:01',NULL),(28,28,247.05,46.94,19,'Completed','2020-11-10','2020-11-05 21:00:00',NULL),(29,29,69.97,13.29,19,'Completed','2020-12-06','2020-12-01 23:12:00',NULL),(30,30,89,16.91,19,'Completed','2020-12-28','2020-12-23 13:00:14',NULL);
 /*!40000 ALTER TABLE `Invoice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +178,7 @@ CREATE TABLE `Orders` (
 
 LOCK TABLES `Orders` WRITE;
 /*!40000 ALTER TABLE `Orders` DISABLE KEYS */;
-INSERT INTO `Orders` VALUES (1,1,1,NULL,'2019-01-01 16:00:00',NULL),(2,2,2,1,'2019-01-10 18:00:00',NULL),(3,1,3,2,'2019-01-12 18:10:00',NULL),(4,1,4,NULL,'2019-01-13 16:00:00',NULL),(5,3,5,NULL,'2019-02-28 10:10:00',NULL),(6,3,6,NULL,'2019-03-01 09:35:00',NULL),(7,2,7,NULL,'2019-03-10 20:00:00',NULL),(8,4,8,NULL,'2019-03-19 19:00:00',NULL),(9,5,9,NULL,'2019-05-14 08:10:00',NULL),(10,4,10,NULL,'2019-05-18 10:10:00',NULL),(11,6,11,NULL,'2019-06-02 08:33:01',NULL),(12,7,12,NULL,'2019-06-24 12:04:45',NULL),(13,8,13,NULL,'2019-07-04 22:20:09',NULL),(14,5,14,NULL,'2019-07-14 18:10:00',NULL),(15,9,15,NULL,'2019-08-08 14:30:35',NULL),(16,1,16,NULL,'2019-08-17 14:15:35',NULL),(17,10,17,NULL,'2019-10-29 09:31:32',NULL),(18,11,18,NULL,'2019-12-12 21:03:01',NULL),(19,1,19,2,'2019-12-14 22:03:01',NULL),(20,12,20,NULL,'2020-01-10 09:14:23',NULL),(21,4,21,1,'2020-01-17 09:14:23',NULL),(22,13,22,NULL,'2020-02-02 11:14:24',NULL),(23,14,23,NULL,'2020-03-15 12:50:00',NULL),(24,1,24,1,'2020-03-29 22:51:00',NULL),(25,15,25,NULL,'2020-04-28 23:30:00',NULL),(26,16,26,2,'2020-07-07 15:00:01',NULL),(27,17,27,NULL,'2020-10-08 18:40:01',NULL),(28,18,28,NULL,'2020-11-05 21:00:00',NULL),(29,19,29,NULL,'2020-12-01 23:12:00',NULL),(30,20,30,NULL,'2020-12-23 13:00:14',NULL);
+INSERT INTO `Orders` VALUES (1,1,1,3,'2019-01-01 16:00:00',NULL),(2,2,2,1,'2019-01-10 18:00:00',NULL),(3,1,3,2,'2019-01-12 18:10:00',NULL),(4,1,4,3,'2019-01-13 16:00:00',NULL),(5,3,5,3,'2019-02-28 10:10:00',NULL),(6,3,6,3,'2019-03-01 09:35:00',NULL),(7,2,7,3,'2019-03-10 20:00:00',NULL),(8,4,8,3,'2019-03-19 19:00:00',NULL),(9,5,9,3,'2019-05-14 08:10:00',NULL),(10,4,10,3,'2019-05-18 10:10:00',NULL),(11,6,11,3,'2019-06-02 08:33:01',NULL),(12,7,12,3,'2019-06-24 12:04:45',NULL),(13,8,13,3,'2019-07-04 22:20:09',NULL),(14,5,14,3,'2019-07-14 18:10:00',NULL),(15,9,15,3,'2019-08-08 14:30:35',NULL),(16,1,16,3,'2019-08-17 14:15:35',NULL),(17,10,17,3,'2019-10-29 09:31:32',NULL),(18,11,18,3,'2019-12-12 21:03:01',NULL),(19,1,19,2,'2019-12-14 22:03:01',NULL),(20,12,20,3,'2020-01-10 09:14:23',NULL),(21,4,21,1,'2020-01-17 09:14:23',NULL),(22,13,22,3,'2020-02-02 11:14:24',NULL),(23,14,23,3,'2020-03-15 12:50:00',NULL),(24,1,24,1,'2020-03-29 22:51:00',NULL),(25,15,25,3,'2020-04-28 23:30:00',NULL),(26,16,26,2,'2020-07-07 15:00:01',NULL),(27,17,27,3,'2020-10-08 18:40:01',NULL),(28,18,28,3,'2020-11-05 21:00:00',NULL),(29,19,29,3,'2020-12-01 23:12:00',NULL),(30,20,30,3,'2020-12-23 13:00:14',NULL);
 /*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,7 +427,7 @@ CREATE TABLE `User_Address` (
 
 LOCK TABLES `User_Address` WRITE;
 /*!40000 ALTER TABLE `User_Address` DISABLE KEYS */;
-INSERT INTO `User_Address` VALUES (1,1,'Schaarsteinweg','14','Elztal','74834','Germany','2019-01-01 14:01:00',NULL),(2,2,'Hollander Strasse','78','Hallstadt','82491','Germany','2019-01-10 15:00:00',NULL),(3,3,'Neuer Jungfernstieg','124','Grainau','68219','Germany','2019-02-28 09:35:00',NULL),(4,4,'Nuernbergerstrasse','89','Bad Wildungen','34537','Germany','2019-03-19 17:39:10',NULL),(5,5,'Messedamm','200','Stephanskirchen','83065','Germany','2019-05-14 05:12:00',NULL),(6,6,'Borstelmannsweg','43','Lauter','83125','Germany','2019-06-02 08:33:01',NULL),(7,7,'An der Alster','2','Willroth','56594','Germany','2019-06-23 21:04:45',NULL),(8,8,'Meininger Strasse ','60','Schaafheim','64850','Germany','2019-07-04 22:14:09',NULL),(9,9,'Mohrenstrasse ','78','Bad Salzuflen Innenstadt','32105','Germany','2019-08-08 14:15:35',NULL),(10,10,'Unter den Linden ','119','Pforzheim Innenstadt','75172','Germany','2019-10-29 06:31:32',NULL),(11,11,'Brandenburgische Str ','78','Toenning','25827','Germany','2019-12-12 21:03:01',NULL),(12,12,'Scharnweberstrasse','350','Bitterfeld','06732','Germany','2020-01-10 07:15:23',NULL),(13,13,'Koepenicker Str.','35','Heuchelheim bei Franken','67259','Germany','2020-12-12 09:14:24',NULL),(14,14,'Leipziger Strasse','11','Salzweg','94119','Germany','2020-03-15 10:45:00',NULL),(15,15,'Rathausstrasse','90','Dresden','01314','Germany','2020-04-28 23:13:00',NULL),(16,16,'Stresemannstr.','4','Weissenfels','06651','Germany','2020-07-07 15:00:01',NULL),(17,17,'Rudower Chaussee','18','Altrich','54518','Germany','2020-10-08 18:34:01',NULL),(18,18,'Langenhorner Chaussee','2','Berlin','14052','Germany','2020-11-05 20:00:00',NULL),(19,19,'Grosse Praesidenten Str. ','116','Loewenstein','74245','Germany','2020-12-01 22:12:00',NULL),(20,20,'Bleibtreustrasse ','5','Jena','07707','Germany','2020-12-23 10:00:14',NULL);
+INSERT INTO `User_Address` VALUES (1,1,'Schaarsteinweg','14','Elztal','74834','Germany','2019-01-01 14:01:00',NULL),(2,2,'Hollander Strasse','78','Hallstadt','82491','Germany','2019-01-10 15:00:00',NULL),(3,3,'Neuer Jungfernstieg','124','Grainau','68219','Germany','2019-02-28 09:35:00',NULL),(4,4,'Nuernbergerstrasse','89','Bad Wildungen','34537','Germany','2019-03-19 17:39:10',NULL),(5,5,'Messedamm','200','Stephanskirchen','83065','Germany','2019-05-14 05:12:00',NULL),(6,6,'Borstelmannsweg','43','Lauter','83125','Germany','2019-06-02 08:33:01',NULL),(7,7,'An der Alster','2','Willroth','56594','Germany','2019-06-23 21:04:45',NULL),(8,8,'Meininger Strasse ','60','Schaafheim','64850','Germany','2019-07-04 22:14:09',NULL),(9,9,'Mohrenstrasse ','78','Bad Salzuflen Innenstadt','32105','Germany','2019-08-08 14:15:35',NULL),(10,10,'Unter den Linden ','119','Pforzheim Innenstadt','75172','Germany','2019-10-29 06:31:32',NULL),(11,11,'Brandenburgische Str ','78','Toenning','25827','Germany','2019-12-12 21:03:01',NULL),(12,12,'Scharnweberstrasse','350','Bitterfeld','06732','Germany','2020-01-10 07:15:23',NULL),(14,14,'Leipziger Strasse','11','Salzweg','94119','Germany','2020-03-15 10:45:00',NULL),(15,15,'Rathausstrasse','90','Dresden','01314','Germany','2020-04-28 23:13:00',NULL),(16,16,'Stresemannstr.','4','Weissenfels','06651','Germany','2020-07-07 15:00:01',NULL),(17,17,'Rudower Chaussee','18','Altrich','54518','Germany','2020-10-08 18:34:01',NULL),(18,18,'Langenhorner Chaussee','2','Berlin','14052','Germany','2020-11-05 20:00:00',NULL),(19,19,'Grosse Praesidenten Str. ','116','Loewenstein','74245','Germany','2020-12-01 22:12:00',NULL),(20,20,'Bleibtreustrasse ','5','Jena','07707','Germany','2020-12-23 10:00:14',NULL);
 /*!40000 ALTER TABLE `User_Address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -469,4 +471,5 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-22 14:23:09
+-- Dump completed on 2021-10-23  0:06:47
+
