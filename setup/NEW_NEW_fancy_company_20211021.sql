@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `fan` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `fan`;
+CREATE DATABASE  IF NOT EXISTS `fancy_company` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `fancy_company`;
 -- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fan
@@ -409,7 +409,7 @@ CREATE TABLE `User_Address` (
   `User_ID` bigint unsigned NOT NULL,
   `User_Address_Streetname` varchar(25) NOT NULL,
   `User_Address_Streetnumber` varchar(25) NOT NULL,
-  `User_Address_City` varchar(25) NOT NULL,
+  `User_Address_City` varchar(30) NOT NULL,
   `User_Address_Postalcode` varchar(25) NOT NULL,
   `User_Adress_Country` varchar(25) NOT NULL,
   `Created_At` datetime DEFAULT NULL,
@@ -427,7 +427,7 @@ CREATE TABLE `User_Address` (
 
 LOCK TABLES `User_Address` WRITE;
 /*!40000 ALTER TABLE `User_Address` DISABLE KEYS */;
-INSERT INTO `User_Address` VALUES (1,1,'Schaarsteinweg','14','Elztal','74834','Germany','2019-01-01 14:01:00',NULL),(2,2,'Hollander Strasse','78','Hallstadt','82491','Germany','2019-01-10 15:00:00',NULL),(3,3,'Neuer Jungfernstieg','124','Grainau','68219','Germany','2019-02-28 09:35:00',NULL),(4,4,'Nuernbergerstrasse','89','Bad Wildungen','34537','Germany','2019-03-19 17:39:10',NULL),(5,5,'Messedamm','200','Stephanskirchen','83065','Germany','2019-05-14 05:12:00',NULL),(6,6,'Borstelmannsweg','43','Lauter','83125','Germany','2019-06-02 08:33:01',NULL),(7,7,'An der Alster','2','Willroth','56594','Germany','2019-06-23 21:04:45',NULL),(8,8,'Meininger Strasse ','60','Schaafheim','64850','Germany','2019-07-04 22:14:09',NULL),(9,9,'Mohrenstrasse ','78','Bad Salzuflen Innenstadt','32105','Germany','2019-08-08 14:15:35',NULL),(10,10,'Unter den Linden ','119','Pforzheim Innenstadt','75172','Germany','2019-10-29 06:31:32',NULL),(11,11,'Brandenburgische Str ','78','Toenning','25827','Germany','2019-12-12 21:03:01',NULL),(12,12,'Scharnweberstrasse','350','Bitterfeld','06732','Germany','2020-01-10 07:15:23',NULL),(14,14,'Leipziger Strasse','11','Salzweg','94119','Germany','2020-03-15 10:45:00',NULL),(15,15,'Rathausstrasse','90','Dresden','01314','Germany','2020-04-28 23:13:00',NULL),(16,16,'Stresemannstr.','4','Weissenfels','06651','Germany','2020-07-07 15:00:01',NULL),(17,17,'Rudower Chaussee','18','Altrich','54518','Germany','2020-10-08 18:34:01',NULL),(18,18,'Langenhorner Chaussee','2','Berlin','14052','Germany','2020-11-05 20:00:00',NULL),(19,19,'Grosse Praesidenten Str. ','116','Loewenstein','74245','Germany','2020-12-01 22:12:00',NULL),(20,20,'Bleibtreustrasse ','5','Jena','07707','Germany','2020-12-23 10:00:14',NULL);
+INSERT INTO `User_Address` VALUES (1,1,'Schaarsteinweg','14','Elztal','74834','Germany','2019-01-01 14:01:00',NULL),(2,2,'Hollander Strasse','78','Hallstadt','82491','Germany','2019-01-10 15:00:00',NULL),(3,3,'Neuer Jungfernstieg','124','Grainau','68219','Germany','2019-02-28 09:35:00',NULL),(4,4,'Nuernbergerstrasse','89','Bad Wildungen','34537','Germany','2019-03-19 17:39:10',NULL),(5,5,'Messedamm','200','Stephanskirchen','83065','Germany','2019-05-14 05:12:00',NULL),(6,6,'Borstelmannsweg','43','Lauter','83125','Germany','2019-06-02 08:33:01',NULL),(7,7,'An der Alster','2','Willroth','56594','Germany','2019-06-23 21:04:45',NULL),(8,8,'Meininger Strasse ','60','Schaafheim','64850','Germany','2019-07-04 22:14:09',NULL),(9,9,'Mohrenstrasse ','78','Bad Salzuflen Innenstadt','32105','Germany','2019-08-08 14:15:35',NULL),(10,10,'Unter den Linden ','119','Pforzheim Innenstadt','75172','Germany','2019-10-29 06:31:32',NULL),(11,11,'Brandenburgische Str ','78','Toenning','25827','Germany','2019-12-12 21:03:01',NULL),(12,12,'Scharnweberstrasse','350','Bitterfeld','06732','Germany','2020-01-10 07:15:23',NULL),(13,13,'Koepenicker Str.','35','Heuchelheim','67259','Germany','2020-02-02 09:14:24',NULL),(14,14,'Leipziger Strasse','11','Salzweg','94119','Germany','2020-03-15 10:45:00',NULL),(15,15,'Rathausstrasse','90','Dresden','01314','Germany','2020-04-28 23:13:00',NULL),(16,16,'Stresemannstr.','4','Weissenfels','06651','Germany','2020-07-07 15:00:01',NULL),(17,17,'Rudower Chaussee','18','Altrich','54518','Germany','2020-10-08 18:34:01',NULL),(18,18,'Langenhorner Chaussee','2','Berlin','14052','Germany','2020-11-05 20:00:00',NULL),(19,19,'Grosse Praesidenten Str. ','116','Loewenstein','74245','Germany','2020-12-01 22:12:00',NULL),(20,20,'Bleibtreustrasse ','5','Jena','07707','Germany','2020-12-23 10:00:14',NULL);
 /*!40000 ALTER TABLE `User_Address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -471,5 +471,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-23  0:06:47
-
+-- Dump completed on 2021-10-23  0:29:43
