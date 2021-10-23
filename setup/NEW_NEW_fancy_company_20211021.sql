@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `fancy_company` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `fancy_company` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `fancy_company`;
 -- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
@@ -39,7 +39,7 @@ CREATE TABLE `Company` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`Company_ID`),
   UNIQUE KEY `Company_ID` (`Company_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `Discount` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`Discount_ID`),
   UNIQUE KEY `Discount_ID` (`Discount_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +103,7 @@ CREATE TABLE `Invoice` (
   UNIQUE KEY `Invoice_ID` (`Invoice_ID`),
   KEY `Order_ID` (`Order_ID`),
   CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`Order_ID`) REFERENCES `Orders` (`Order_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +136,7 @@ CREATE TABLE `Order_Item` (
   KEY `SKU_ID` (`SKU_ID`),
   CONSTRAINT `order_item_ibfk_1` FOREIGN KEY (`Order_ID`) REFERENCES `Orders` (`Order_ID`),
   CONSTRAINT `order_item_ibfk_2` FOREIGN KEY (`SKU_ID`) REFERENCES `SKU` (`SKU_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +169,7 @@ CREATE TABLE `Orders` (
   KEY `Discount_ID _idx` (`Discount_ID`),
   CONSTRAINT `Discount_ID ` FOREIGN KEY (`Discount_ID`) REFERENCES `Discount` (`Discount_ID`) ON DELETE SET NULL ON UPDATE SET NULL,
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,7 +200,7 @@ CREATE TABLE `Product` (
   UNIQUE KEY `Product_ID` (`Product_ID`),
   KEY `Product_Category_ID` (`Product_Category_ID`),
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`Product_Category_ID`) REFERENCES `Product_Category` (`Product_Category_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -227,7 +227,7 @@ CREATE TABLE `Product_Category` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`Product_Category_ID`),
   UNIQUE KEY `Product_Category_ID` (`Product_Category_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +254,7 @@ CREATE TABLE `Product_Colour` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`Product_Colour_ID`),
   UNIQUE KEY `Product_Colour_ID` (`Product_Colour_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +287,7 @@ CREATE TABLE `Product_Rating` (
   KEY `User_ID` (`User_ID`),
   CONSTRAINT `product_rating_ibfk_1` FOREIGN KEY (`Product_ID`) REFERENCES `Product` (`Product_ID`),
   CONSTRAINT `product_rating_ibfk_2` FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -314,7 +314,7 @@ CREATE TABLE `Product_Size` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`Product_Size_ID`),
   UNIQUE KEY `Product_Size_ID` (`Product_Size_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +353,7 @@ CREATE TABLE `SKU` (
   CONSTRAINT `sku_ibfk_2` FOREIGN KEY (`Product_Colour_ID`) REFERENCES `Product_Colour` (`Product_Colour_ID`),
   CONSTRAINT `sku_ibfk_3` FOREIGN KEY (`Product_Size_ID`) REFERENCES `Product_Size` (`Product_Size_ID`),
   CONSTRAINT `sku_ibfk_4` FOREIGN KEY (`Warehouse_ID`) REFERENCES `Warehouse` (`Warehouse_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -384,7 +384,7 @@ CREATE TABLE `User` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`User_ID`),
   UNIQUE KEY `User_ID` (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -418,7 +418,7 @@ CREATE TABLE `User_Address` (
   UNIQUE KEY `User_Address_ID` (`User_Address_ID`),
   KEY `User_ID` (`User_ID`),
   CONSTRAINT `user_address_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `User` (`User_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -449,7 +449,7 @@ CREATE TABLE `Warehouse` (
   `Modified_At` datetime DEFAULT NULL,
   PRIMARY KEY (`Warehouse_ID`),
   UNIQUE KEY `Warehouse_ID` (`Warehouse_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
