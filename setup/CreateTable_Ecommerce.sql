@@ -1,5 +1,5 @@
 /*tell which database you will use*/
-USE e_commerce;
+USE fancy_company;
 
 CREATE TABLE IF NOT EXISTS `Product_Category` (
   `Product_Category_ID`SERIAL NOT NULL,

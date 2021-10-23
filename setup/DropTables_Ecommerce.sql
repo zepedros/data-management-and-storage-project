@@ -1,4 +1,4 @@
-use e_commerce;
+use fancy_company;
 
 DROP TABLE Company;
 DROP TABLE Order_Item;
