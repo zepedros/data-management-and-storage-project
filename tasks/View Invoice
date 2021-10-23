@@ -1,12 +1,15 @@
-CREATE VIEW Invoice_Details_View
-AS
-SELECT p.product_Name as 'Description', p.Product_Price as 'Unit Cost',  oi.quantity as 'quantity', (p.Product_Price*oi.quantity) as 'Amount'
-From product as p
-Inner Join SKU as s
-ON  p.product_ID = s.product_ID
-Inner Join order_item as oi
-ON s.sku_id = oi.sku_id
-Inner Join orders as o
-ON oi.order_ID = o.order_ID
-Inner Join invoice as i
-ON o.order_ID = i.order_ID;
+USE fancy_company;
+CREATE VIEW invoice_details_view  AS
+SELECT 
+        `i`.`Invoice_ID` AS `Invoice_Number`,
+        `p`.`Product_Name` AS `Description`,
+        `p`.`Product_Price` AS `Unit_Cost`,
+        `oi`.`Quantity` AS `Quantity`,
+        (`p`.`Product_Price` * `oi`.`Quantity`) AS `Amount`
+
+FROM
+        ((((`fancy_company`.`invoice` `i`
+        JOIN `fancy_company`.`orders` `o` ON ((`i`.`Order_ID` = `o`.`Order_ID`)))
+        JOIN `fancy_company`.`order_item` `oi` ON ((`o`.`Order_ID` = `oi`.`Order_ID`)))
+        JOIN `fancy_company`.`sku` `s` ON ((`oi`.`SKU_ID` = `s`.`SKU_ID`)))
+        JOIN `fancy_company`.`product` `p` ON ((`s`.`Product_ID` = `p`.`Product_ID`)));
