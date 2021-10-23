@@ -1,12 +1,12 @@
-SELECT Distinct ua.User_Address_City as Location
-from user_address as ua
-inner join user as u
-on u.User_ID = ua.User_ID
-inner join product_rating as pa
-on u.user_id = pa.user_id
-inner join orders as o
-on o.user_id = u.user_id
-where  u.user_ID IN ( Select paa.User_ID
-from product_rating as paa)
-AND  u.user_ID IN (SELECT oo.User_ID 
-from orders as oo);
+SELECT Distinct UA.User_Address_City as Location
+from User_Address as UA
+inner join User as U
+on U.User_ID = UA.User_ID
+inner join Product_Rating as PA
+on U.User_ID = PA.User_ID
+inner join Orders as O
+on O.User_ID = U.User_ID
+where  U.User_ID IN ( Select PAA.User_ID
+from Product_Rating as PAA)
+AND  U.User_ID IN (SELECT OO.User_ID 
+from Orders as OO);
