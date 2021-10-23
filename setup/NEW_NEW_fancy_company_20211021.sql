@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `fan` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `fan`;
+CREATE DATABASE  IF NOT EXISTS `fancy_company` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `fancy_company`;
 -- MySQL dump 10.13  Distrib 8.0.26, for macos11 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fan
@@ -488,7 +488,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `invoice_details_view` AS select `p`.`Product_Name` AS `Description`,`p`.`Product_Price` AS `Unit Cost`,`oi`.`Quantity` AS `quantity`,(`p`.`Product_Price` * `oi`.`Quantity`) AS `Amount` from ((`product` `p` join `sku` `s` on((`p`.`Product_ID` = `s`.`Product_ID`))) join `order_item` `oi` on((`s`.`SKU_ID` = `oi`.`SKU_ID`))) */;
+/*!50001 VIEW `invoice_details_view` AS select `p`.`Product_Name` AS `Description`,`p`.`Product_Price` AS `Unit Cost`,`oi`.`Quantity` AS `quantity`,(`p`.`Product_Price` * `oi`.`Quantity`) AS `Amount` from ((`Product` `p` join `SKU` `s` on((`p`.`Product_ID` = `s`.`Product_ID`))) join `Order_Item` `oi` on((`s`.`SKU_ID` = `oi`.`SKU_ID`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
