@@ -34,7 +34,7 @@ On O.Discount_ID = D.Discount_ID;
 -- Exercise 4 *************************************************************************************************************************************************************
 
 USE fancy_company; 
-select UA.User_Address_City as location, ROUND(Sum(Sales_Amount *((100-D.Discount_Percentage)/100)),2) as sales
+select UA.User_Address_City as Location, ROUND(Sum(Sales_Amount *((100-D.Discount_Percentage)/100)),2) as Sales
 from User as U
 join User_Address as UA
 on U.User_ID = UA.User_ID
