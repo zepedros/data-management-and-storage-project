@@ -1,0 +1,62 @@
+-- *******************************************************QUERIES***********************************************************************************************************
+-- Exercise 1 *************************************************************************************************************************************************************
+
+USE fancy_company; 
+SELECT Concat(U.User_First_Name, ' ', U.User_Last_Name) as Name, O.Created_At AS Date, P.Product_Name
+FROM Orders AS O, Order_item AS OI, user AS U, Product AS P
+WHERE O.Order_ID = OI.Order_ID AND O.User_ID = U.User_ID AND OI.ORDER_ITEM_ID = P.Product_ID
+AND O.Created_At > '2019-02-28 11:10:00' AND O.Created_At < '2019-06-02 07:33:01';
+
+-- Exercise 2 *************************************************************************************************************************************************************
+
+USE fancy_company; 
+SELECT concat(U.user_first_name," ", U.user_last_name) as Name, Round(SUM(i.sales_amount*((100-d.discount_percentage)/100)),2) as Revenue
+FROM Orders as O
+JOIN user  as u On o.user_id = u.user_id
+JOIN invoice as  i On o.invoice_id = i.invoice_id
+LEFT JOIN  Discount as D On o.discount_ID = d.discount_ID
+GROUP BY Name
+ORDER BY Revenue DESC
+LIMIT 3;
+
+
+-- Exercise 3 *************************************************************************************************************************************************************
+
+USE fancy_company; 
+SELECT '01/2019-12/2020' as PeriodOfSales, ROUND(SUM(Sales_Amount*((100-d.discount_percentage)/100)),2) as TotalSales, ROUND(Sum(Sales_Amount*((100-d.discount_percentage)/100)/2),2) as YearlyAverage, ROUND(Sum(Sales_Amount*((100-d.discount_percentage)/100)/24),2) as MonthlyAverage
+FROM invoice as i
+JOIN Orders as o 
+ON o.invoice_id = i.invoice_id
+JOIN Discount as D 
+On o.discount_ID = d.discount_ID;
+
+-- Exercise 4 *************************************************************************************************************************************************************
+
+USE fancy_company; 
+SELECT ua.User_Address_City as Location, ROUND(Sum(sales_amount *((100-d.discount_percentage)/100)),2) as Sales
+FROM user as u
+JOIN user_address as ua
+ON u.User_ID = ua.User_ID
+JOIN orders as o
+ON u.user_id = o.user_id
+JOIN invoice as i
+ON o.order_Id = i.order_id
+JOIN discount as d
+ON o.discount_ID = d.discount_ID
+GROUP BY ua.user_Address_city;
+
+-- Exercise 5 *************************************************************************************************************************************************************
+
+USE fancy_company; 
+SELECT Distinct ua.User_Address_City as Location
+FROM user_address as ua
+INNER JOIN user as u
+ON u.User_ID = ua.User_ID
+INNER JOIN product_rating as pa
+ON u.user_id = pa.user_id
+INNER JOIN orders as o
+on o.user_id = u.user_id
+WHERE  u.user_ID IN ( Select paa.User_ID
+FROM product_rating as paa)
+AND  u.user_ID IN (SELECT oo.User_ID 
+FROM orders as oo);
