@@ -12,6 +12,7 @@ FROM
         JOIN `fancy_company`.`Orders` `O` ON ((`I`.`Order_ID` = `O`.`Order_ID`)))
         JOIN `fancy_company`.`Order_Item` `OI` ON ((`O`.`Order_ID` = `OI`.`Order_ID`)))
         JOIN `fancy_company`.`SKU` `S` ON ((`OI`.`SKU_ID` = `S`.`SKU_ID`)))
-        JOIN `fancy_company`.`Product` `P` ON ((`S`.`Product_ID` = `P`.`Product_ID`)));
+        JOIN `fancy_company`.`Product` `P` ON ((`S`.`Product_ID` = `P`.`Product_ID`)))
+ORDER BY i.invoice_id; 
 
 SELECT * FROM INVOICE_DETAILS_VIEW;
